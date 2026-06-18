@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jureddy Lakshmi Manohar Kumar | Lead Full-Stack .NET Engineer</title>
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            base: '#0b0f19',       /* Deep Calm Blue-Zinc */
+                            card: '#111827',       /* Deep Slate */
+                            border: '#1f2937'      /* Cool Gray 800 */
+                        },
+                        brand: {
+                            primary: '#3b82f6',    /* Calm Blue */
+                            accent: '#0d9488',     /* Serene Teal */
+                            cool: '#6366f1'        /* Relaxed Indigo */
+                        }
+                    },
+                    animation: {
+                        'glow-slow': 'glow 8s ease-in-out infinite',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-medium': 'float 4s ease-in-out infinite',
+                        'float-fast': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%, 100%': { opacity: '0.2', transform: 'scale(1)' },
+                            '50%': { opacity: '0.4', transform: 'scale(1.15)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-12px) rotate(1deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Modern Glassmorphism Theme-Adaptive Card Styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(203, 213, 225, 0.6);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(31, 41, 55, 0.5);
+        }
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.15);
+            transform: translateY(-4px);
+        }
+        .dark .glass-card:hover {
+            box-shadow: 0 12px 30px -10px rgba(13, 148, 136, 0.3);
+        }
+        
+        /* Smooth Gradients across color schemes */
+        .text-gradient {
+            background: linear-gradient(135deg, #1e293b 30%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .accent-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Theme Adaptive Cool Grid Background */
+        .grid-bg {
+            background-image: radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .dark .grid-bg {
+            background-image: radial-gradient(rgba(55, 65, 81, 0.15) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-dark-base text-slate-800 dark:text-gray-200 font-sans antialiased overflow-x-hidden selection:bg-brand-primary/20 selection:text-slate-900 dark:selection:text-white transition-colors duration-300">
+
+    <!-- Ambient Calm Glowing Orbs -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-primary/5 dark:bg-brand-primary/10 blur-[120px] pointer-events-none animate-glow-slow" style="animation-delay: 0s;"></div>
+    <div class="absolute top-[20%] right-1/4 w-[600px] h-[600px] rounded-full bg-brand-accent/5 dark:bg-brand-accent/5 blur-[150px] pointer-events-none animate-glow-slow" style="animation-delay: 2s;"></div>
+
+    <!-- Navigation Header -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 border-b border-transparent">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center transition-transform group-hover:scale-110">
+                    <span class="text-white font-extrabold text-xl font-display">M</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-lg text-slate-900 dark:text-white font-display tracking-tight leading-tight">Manohar<span class="text-brand-accent">.</span></span>
+                    <span class="text-[10px] text-slate-500 dark:text-gray-400 font-mono tracking-widest uppercase">Full-Stack Engineer</span>
+                </div>
+            </a>
+            
+            <!-- Center Menu Links -->
+            <nav class="hidden md:flex items-center gap-1 bg-white/80 dark:bg-gray-900/60 border border-slate-200/80 dark:border-gray-800 rounded-full p-1.5 backdrop-blur-md shadow-sm dark:shadow-none">
+                <a href="#home" class="px-5 py-2 rounded-full text-sm font-semibold text-brand-primary dark:text-white bg-slate-100 dark:bg-gray-800 transition-all">Home</a>
+                <a href="#recruiter-hub" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-500 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-all">At a Glance</a>
+                <a href="#skills" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-500 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-all">Expertise</a>
+                <a href="#portfolio" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-500 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-all">Projects</a>
+                <a href="#experience" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-500 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-all">Timeline</a>
+            </nav>
+
+            <!-- Navigation Controls & CTAs -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="w-10 h-10 rounded-xl bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 text-slate-600 dark:text-slate-300 hover:text-brand-primary hover:border-brand-primary/50 flex items-center justify-center transition-all duration-300" title="Toggle Theme">
+                    <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
+                </button>
+
+                <a href="../V1/Jureddy_Lakshmi_Manohar_Kumar_Dotnet_FullStack_Developer_.pdf" download="../V1/Jureddy_Lakshmi_Manohar_Kumar_Dotnet_FullStack_Developer_.pdf" class="hidden lg:inline-flex items-center gap-2 bg-gradient-to-r from-brand-primary to-brand-cool text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md shadow-brand-primary/10 hover:shadow-brand-primary/30 hover:-translate-y-0.5 transition-all">
+                    Get CV <i class="fa-solid fa-cloud-arrow-down text-xs"></i>
+                </a>
+                <a href="#contact" class="bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 text-slate-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-sm dark:shadow-none">
+                    Let's Chat
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-36 pb-20 lg:pt-48 lg:pb-32 grid-bg">
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <!-- Left Column: Key Copywriting -->
+                <div class="w-full lg:w-3/5 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-semibold uppercase tracking-wider mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span> Open to Roles &amp; Freelancing
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-white mb-6 font-display leading-tight tracking-tight">
+                        Building Scalable <br/>
+                        <span class="text-gradient">Enterprise Platforms</span>
+                    </h1>
+                    
+                    <p class="text-slate-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 font-light">
+                        Full-Stack .NET Developer with <strong class="text-brand-accent font-semibold">4.9 years of hands-on expertise</strong> crafting secure audit workflows, aviation systems, and optimized high-performance Cloud applications.
+                    </p>
+                    
+                    <!-- Core Call-to-actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="../V1/Jureddy_Lakshmi_Manohar_Kumar_Dotnet_FullStack_Developer_.pdf" download="../V1/Jureddy_Lakshmi_Manohar_Kumar_Dotnet_FullStack_Developer_.pdf" class="w-full sm:w-auto bg-gradient-to-r from-brand-primary to-brand-cool text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/40 hover:-translate-y-1 transition-all flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-file-pdf"></i> Download Resume (PDF)
+                        </a>
+                        <a href="#recruiter-hub" class="w-full sm:w-auto bg-white dark:bg-gray-900 hover:bg-slate-50 dark:hover:bg-gray-800 border border-slate-200 dark:border-gray-800 text-slate-800 dark:text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 shadow-sm">
+                            Quick-View Stats <i class="fa-solid fa-bolt text-brand-accent"></i>
+                        </a>
+                    </div>
+
+                    <!-- Micro-trust signals -->
+                    <div class="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-6 text-sm text-slate-500 dark:text-gray-500">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-accent"></i> Role-Based Access Systems</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-cube text-brand-primary"></i> Containerized Architectures</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-cool"></i> Query Performance Tuned</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Profile Collage with Stack Badges -->
+                <div class="w-full lg:w-2/5 relative flex justify-center mt-12 lg:mt-0">
+                    <div class="relative w-80 h-80 md:w-[400px] md:h-[400px]">
+                        
+                        <!-- Glowing Backing Grid Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/10 to-brand-accent/10 rounded-full blur-2xl"></div>
+                        
+                        <!-- Profile Image Frame focusing on formal suit portrait -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-slate-200 to-slate-100 dark:from-gray-800 dark:to-gray-900 border-2 border-slate-200 dark:border-gray-700/60 rounded-[3rem] shadow-xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                            <img 
+                                src="../V1/ManoharProfileImage.png" 
+                                onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" 
+                                alt="Jureddy Lakshmi Manohar Kumar" 
+                                class="w-full h-full object-cover object-top"
+                            />
+                        </div>
+                        
+                        <!-- Adaptive Stack Badges with calm animation states -->
+                        <!-- Badge 1: .NET -->
+                        <div class="absolute -top-6 -left-6 bg-white/95 dark:bg-gray-900/95 border border-slate-200 dark:border-gray-800 p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-float-slow">
+                           <div class="w-10 h-10 bg-indigo-500/10 text-indigo-500 dark:text-indigo-400 rounded-xl flex items-center justify-center font-bold text-sm">.NET</div>
+                        </div>
+                        
+                        <!-- Badge 2: C# -->
+                        <div class="absolute top-12 -right-8 bg-white/95 dark:bg-gray-900/95 border border-slate-200 dark:border-gray-800 p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-float-medium" style="animation-delay: 0.5s;">
+                           <div class="w-10 h-10 bg-purple-500/10 text-purple-500 dark:text-purple-400 rounded-xl flex items-center justify-center font-bold text-sm">C#</div>
+                        </div>
+
+                        <!-- Badge 3: Azure Cloud -->
+                        <div class="absolute top-1/2 -right-12 bg-white/95 dark:bg-gray-900/95 border border-slate-200 dark:border-gray-800 p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-float-fast" style="animation-delay: 1.2s; transform: translateY(-50%);">
+                           <div class="w-10 h-10 bg-blue-500/10 text-blue-500 dark:text-blue-400 rounded-xl flex items-center justify-center font-bold text-lg">
+                              <i class="fa-solid fa-cloud"></i>
+                           </div>
+                        </div>
+
+                        <!-- Badge 4: Angular -->
+                        <div class="absolute -bottom-4 right-6 bg-white/95 dark:bg-gray-900/95 border border-slate-200 dark:border-gray-800 p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-float-slow" style="animation-delay: 0.8s;">
+                           <div class="w-10 h-10 bg-red-500/10 text-red-500 dark:text-red-400 rounded-xl flex items-center justify-center font-bold text-lg">
+                              <i class="fa-brands fa-angular"></i>
+                           </div>
+                        </div>
+
+                        <!-- Badge 5: React -->
+                        <div class="absolute -bottom-8 left-1/4 bg-white/95 dark:bg-gray-900/95 border border-slate-200 dark:border-gray-800 p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-float-medium" style="animation-delay: 2s;">
+                           <div class="w-10 h-10 bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 rounded-xl flex items-center justify-center font-bold text-lg">
+                              <i class="fa-brands fa-react"></i>
+                           </div>
+                        </div>
+
+                        <!-- Badge 6: MS SQL -->
+                        <div class="absolute bottom-16 -left-12 bg-white/95 dark:bg-gray-900/95 border border-slate-200 dark:border-gray-800 p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-float-fast" style="animation-delay: 1.5s;">
+                           <div class="w-10 h-10 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 rounded-xl flex items-center justify-center font-bold text-lg">
+                              <i class="fa-solid fa-database"></i>
+                           </div>
+                        </div>
+                        
+                        <!-- Badge 7: Docker -->
+                        <div class="absolute top-1/4 -left-10 bg-white/95 dark:bg-gray-900/95 border border-slate-200 dark:border-gray-800 p-3 rounded-2xl shadow-lg flex items-center gap-2 animate-float-slow" style="animation-delay: 2.2s;">
+                           <div class="w-10 h-10 bg-sky-500/10 text-sky-500 dark:text-sky-400 rounded-xl flex items-center justify-center font-bold text-lg">
+                              <i class="fa-brands fa-docker"></i>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiter Executive Dashboard Hub Section -->
+    <section id="recruiter-hub" class="py-20 relative bg-slate-100/40 dark:bg-gray-900/40 border-y border-slate-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 lg:px-12">
+            
+            <div class="text-center lg:text-left mb-12">
+                <div class="text-brand-accent font-mono text-sm tracking-widest uppercase mb-2">QUICK SCREENING</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white font-display">Recruiter Executive Dashboard</h2>
+                <p class="text-slate-500 dark:text-gray-400 mt-2 max-w-xl font-light">Crucial profile parameters parsed to accelerate your screening cycles.</p>
+            </div>
+
+            <!-- Dashboard Layout Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Box 1: Core Experience Stats -->
+                <div class="lg:col-span-4 bg-white dark:bg-gray-950 border border-slate-200 dark:border-gray-800 rounded-[2rem] p-8 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="text-xs text-brand-primary font-bold tracking-widest uppercase mb-4">EXPERIENCE SUMMARY</div>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-gray-800">
+                                <span class="text-slate-500 dark:text-gray-400 text-sm">Professional Exp.</span>
+                                <span class="text-slate-800 dark:text-white font-bold text-lg">4.8+ Years</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-gray-800">
+                                <span class="text-slate-500 dark:text-gray-400 text-sm">Target Domains</span>
+                                <span class="text-slate-800 dark:text-white font-bold text-lg">Aviation, Gov, Cloud Platforms</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-gray-800">
+                                <span class="text-slate-500 dark:text-gray-400 text-sm">Current/Recent Org</span>
+                                <span class="text-slate-800 dark:text-white font-bold text-lg">Prospecta Tech</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-500 dark:text-gray-400 text-sm">Deployment Preferences</span>
+                                <span class="text-brand-accent font-bold text-sm bg-brand-accent/10 px-3 py-1 rounded-full">Remote / Hybrid / Onsite</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 2: Highlighted Achievements & Why Hire Me -->
+                <div class="lg:col-span-5 bg-white dark:bg-gray-950 border border-slate-200 dark:border-gray-800 rounded-[2rem] p-8 shadow-sm">
+                    <div class="text-xs text-brand-accent font-bold tracking-widest uppercase mb-4">KEY ARCHITECTURAL HIGHLIGHTS</div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                            <p class="text-sm text-slate-600 dark:text-gray-300">Engineered robust APIs supporting <strong class="text-slate-800 dark:text-white">multi-stage aviation approvals</strong> for major airline hubs.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                            <p class="text-sm text-slate-600 dark:text-gray-300">Optimized critical SQL database indexes, reducing query latency across audit platforms.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                            <p class="text-sm text-slate-600 dark:text-gray-300">Configured secure <strong class="text-slate-800 dark:text-white">JWT Claims & Role-Based Security</strong> models targeting cloud services.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                            <p class="text-sm text-slate-600 dark:text-gray-300">Dockerized legacy architectures to execute reliably on Microsoft Azure Environments.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Box 3: Quick Contact Widget (Copy Email instantly) -->
+                <div class="lg:col-span-3 bg-white dark:bg-gray-950 border border-slate-200 dark:border-gray-800 rounded-[2rem] p-8 flex flex-col justify-between items-center text-center shadow-sm">
+                    <div class="w-full">
+                        <div class="text-xs text-brand-cool font-bold tracking-widest uppercase mb-4">DIRECT ENGAGEMENT</div>
+                        <div class="w-16 h-16 rounded-full bg-blue-500/10 dark:bg-blue-500/15 text-brand-primary flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+                        <h4 class="text-slate-800 dark:text-white font-bold mb-1">Direct Call/Text</h4>
+                        <a href="tel:+919705706928" class="text-slate-600 dark:text-gray-300 hover:text-brand-accent transition-all font-semibold font-mono text-sm">+91 9705706928</a>
+                    </div>
+                    
+                    <div class="w-full mt-6">
+                        <!-- Instantly copy email on click! -->
+                        <button onclick="copyEmailToClipboard()" class="w-full bg-slate-100 hover:bg-brand-primary/10 dark:bg-gray-900 dark:hover:bg-brand-primary/10 border border-slate-200 dark:border-gray-800 hover:border-brand-primary dark:hover:border-brand-primary text-slate-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-white py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Email Address
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Floating Copy Toast System -->
+    <div id="copy-toast" class="fixed bottom-8 right-8 z-50 glass-card bg-white/90 dark:bg-gray-900/90 text-slate-800 dark:text-white px-6 py-3 rounded-xl border border-brand-accent/50 hidden items-center gap-3 shadow-2xl">
+        <i class="fa-solid fa-circle-check text-brand-accent text-lg"></i>
+        <span class="text-sm font-semibold">Email successfully copied to clipboard!</span>
+    </div>
+
+    <!-- Technical Skills Matrix Section -->
+    <section id="skills" class="py-24 bg-slate-50 dark:bg-dark-base relative transition-colors duration-300">
+        <div class="container mx-auto px-6 lg:px-12">
+            
+            <div class="text-center mb-20">
+                <div class="text-brand-primary font-mono text-sm tracking-widest uppercase mb-2">SYSTEM ARCHITECTURE</div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white font-display">Technical Matrix &amp; Stack</h2>
+                <p class="text-slate-500 dark:text-gray-400 mt-3 max-w-xl mx-auto font-light">My engineered toolkit across backend development, SQL systems, cloud services, and interactive clients.</p>
+            </div>
+
+            <!-- Skills Grid Categorized -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Skill Category 1: Backend Architecture -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-500 dark:text-indigo-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-4">Backend &amp; Logic</h3>
+                        <p class="text-sm text-slate-500 dark:text-gray-400 leading-relaxed mb-6">Robust backend system workflows optimized for large payloads, micro-transactions, and compliant security models.</p>
+                    </div>
+                    <div class="space-y-2 font-mono text-xs text-slate-700 dark:text-brand-accent font-semibold">
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> .NET Core / ASP.NET Core</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> EF Core / LINQ</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> Web API &amp; RESTful Services</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> JWT Claims &amp; Auth</div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 2: Frontend Engineering -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-display"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-4">Client Interfaces</h3>
+                        <p class="text-sm text-slate-500 dark:text-gray-400 leading-relaxed mb-6">Building performant, lightning-fast UI applications emphasizing optimized bundle sizes and client reactivity models.</p>
+                    </div>
+                    <div class="space-y-2 font-mono text-xs text-slate-700 dark:text-brand-accent font-semibold">
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-accent"></i> Angular Framework</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-accent"></i> React.js Library</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-accent"></i> JavaScript (ES6+) / TypeScript</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-accent"></i> Tailwind CSS / Bootstrap</div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 3: Databases & Optimization -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-4">Relational Databases</h3>
+                        <p class="text-sm text-slate-500 dark:text-gray-400 leading-relaxed mb-6">Database physical architecture tuning, complex stored procedure optimization, views, and index analysis.</p>
+                    </div>
+                    <div class="space-y-2 font-mono text-xs text-slate-700 dark:text-brand-accent font-semibold">
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-emerald-500"></i> SQL Server (2008-2022)</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-emerald-500"></i> Performance Query Tuning</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-emerald-500"></i> Stored Procs &amp; Functions</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-emerald-500"></i> Advanced Database Schemas</div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 4: Cloud & Deployment Ops -->
+                <div class="glass-card rounded-[2rem] p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-500 dark:text-brand-primary flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-4">Cloud &amp; Pipeline DevOps</h3>
+                        <p class="text-sm text-slate-500 dark:text-gray-400 leading-relaxed mb-6">Containerization workflows combined with automatic CI/CD deployment pipelines to modern Azure Cloud instances.</p>
+                    </div>
+                    <div class="space-y-2 font-mono text-xs text-slate-700 dark:text-brand-accent font-semibold">
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> Azure DevOps CI/CD</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> Docker Containerization</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> Azure App Services</div>
+                        <div class="flex items-center gap-2 bg-white/80 dark:bg-gray-900 px-3 py-2 rounded-xl border border-slate-200 dark:border-gray-800 shadow-sm dark:shadow-none"><i class="fa-solid fa-caret-right text-brand-primary"></i> Git / GitHub Systems</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Portfolio with Filters -->
+    <section id="portfolio" class="py-24 bg-slate-100/30 dark:bg-gray-900/20 border-t border-slate-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 lg:px-12">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                <div>
+                    <div class="text-brand-accent font-mono text-sm tracking-widest uppercase mb-2">PROVEN WORK</div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white font-display">Enterprise Aviation Portfolio</h2>
+                    <p class="text-slate-500 dark:text-gray-400 mt-2 font-light">Explore production audit and compliance platforms deployed across global aviation hubs.</p>
+                </div>
+                
+                <!-- Dynamic Projects Category Navigation -->
+                <div class="flex flex-wrap gap-2 bg-white dark:bg-gray-950 border border-slate-200 dark:border-gray-800 rounded-2xl p-1.5 shadow-sm">
+                    <button onclick="filterPortfolio('all', this)" class="portfolio-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-primary text-white transition-all shadow-sm">All Systems</button>
+                    <button onclick="filterPortfolio('dotnet', this)" class="portfolio-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-all">.NET Core</button>
+                    <button onclick="filterPortfolio('sql', this)" class="portfolio-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-all">Legacy Stack</button>
+                    <button onclick="filterPortfolio('cloud', this)" class="portfolio-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-500 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-all">Docker &amp; Azure</button>
+                </div>
+            </div>
+
+            <!-- Custom Projects Catalog Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                
+                <!-- System 1: BIAL -->
+                <div class="glass-card rounded-[2rem] overflow-hidden flex flex-col justify-between" data-category="['sql']">
+                    <div>
+                        <div class="p-8 pb-0 flex justify-between items-start">
+                            <span class="text-xs font-bold font-mono text-brand-primary uppercase">SYSTEM HUB 01</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-[10px] font-bold uppercase rounded-full">BIAL Airport</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors">Aviation Safety Platform</h3>
+                            <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed mb-6 font-light">Robust hazard logs, incidents, detailed inspection audits, and operational compliance tracking with high security layers.</p>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-200/40 dark:border-gray-800/40 mt-auto bg-slate-50/50 dark:bg-gray-950/20">
+                        <div class="flex flex-wrap gap-1.5 mt-6 mb-4">
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">.NET Framework</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">ASP.NET MVC</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">SQL Server</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System 2: Air Arabia -->
+                <div class="glass-card rounded-[2rem] overflow-hidden flex flex-col justify-between" data-category="['sql']">
+                    <div>
+                        <div class="p-8 pb-0 flex justify-between items-start">
+                            <span class="text-xs font-bold font-mono text-brand-primary uppercase">SYSTEM HUB 02</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 text-[10px] font-bold uppercase rounded-full">Air Arabia</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors">Ground Operation Performance</h3>
+                            <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed mb-6 font-light">Custom Ground Operations Platform incorporating inspection records and complex automated corrective action workflow structures.</p>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-200/40 dark:border-gray-800/40 mt-auto bg-slate-50/50 dark:bg-gray-950/20">
+                        <div class="flex flex-wrap gap-1.5 mt-6 mb-4">
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">ASP.NET</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">C#</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System 3: Pawan Hans -->
+                <div class="glass-card rounded-[2rem] overflow-hidden flex flex-col justify-between" data-category="['sql']">
+                    <div>
+                        <div class="p-8 pb-0 flex justify-between items-start">
+                            <span class="text-xs font-bold font-mono text-brand-primary uppercase">SYSTEM HUB 03</span>
+                            <span class="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-brand-cool border border-orange-500/20 text-[10px] font-bold uppercase rounded-full">Pawan Hans</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors">Airport Audit Management</h3>
+                            <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed mb-6 font-light">Airport facility audits, physical checks, performance reporting, and approval module implementations.</p>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-200/40 dark:border-gray-800/40 mt-auto bg-slate-50/50 dark:bg-gray-950/20">
+                        <div class="flex flex-wrap gap-1.5 mt-6 mb-4">
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">ASP.NET</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">C#</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System 4: Adani Airport -->
+                <div class="glass-card rounded-[2rem] overflow-hidden flex flex-col justify-between" data-category="['dotnet', 'cloud']">
+                    <div>
+                        <div class="p-8 pb-0 flex justify-between items-start">
+                            <span class="text-xs font-bold font-mono text-brand-primary uppercase">SYSTEM HUB 04</span>
+                            <span class="px-3 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase rounded-full">Adani Airport</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors">Permit &amp; Violation Management</h3>
+                            <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed mb-6 font-light">Digital permit control and security violation workflows utilizing isolated Web API and cloud containerized infrastructure modules.</p>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-200/40 dark:border-gray-800/40 mt-auto bg-slate-50/50 dark:bg-gray-950/20">
+                        <div class="flex flex-wrap gap-1.5 mt-6 mb-4">
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">.NET Core</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">REST API</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">Docker</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">Azure Host</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System 5: Noida International Airport -->
+                <div class="glass-card rounded-[2rem] overflow-hidden flex flex-col justify-between" data-category="['dotnet', 'cloud']">
+                    <div>
+                        <div class="p-8 pb-0 flex justify-between items-start">
+                            <span class="text-xs font-bold font-mono text-brand-primary uppercase">SYSTEM HUB 05</span>
+                            <span class="px-3 py-1 bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 text-[10px] font-bold uppercase rounded-full">Noida Int. Airport</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors">Operational Permit Hub</h3>
+                            <p class="text-slate-500 dark:text-gray-400 text-sm leading-relaxed mb-6 font-light">Custom automated verification engines, REST APIs, deployment monitoring pipelines, and robust auditing panels.</p>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-200/40 dark:border-gray-800/40 mt-auto bg-slate-50/50 dark:bg-gray-950/20">
+                        <div class="flex flex-wrap gap-1.5 mt-6 mb-4">
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">.NET Core</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">Web API</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">Docker</span>
+                            <span class="px-2.5 py-1 bg-white dark:bg-gray-900 text-slate-500 dark:text-gray-400 border border-slate-200 dark:border-gray-800 rounded-lg text-[10px] font-mono">Azure Deploy</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline & Mentorship -->
+    <section id="experience" class="py-24 bg-slate-50 dark:bg-dark-base relative transition-colors duration-300">
+        <div class="container mx-auto px-6 lg:px-12">
+            
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <!-- Left: Professional Career Journey Road -->
+                <div class="w-full lg:w-1/2">
+                    <div class="text-brand-accent font-mono text-sm tracking-widest uppercase mb-2">TIMELINE</div>
+                    <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-12 font-display">Work Roadmap</h2>
+                    
+                    <div class="space-y-12 relative border-l-2 border-slate-200 dark:border-gray-800 pl-8 ml-4">
+                        
+                        <!-- Timeline Point: Prospecta Tech -->
+                        <div class="relative">
+                            <!-- Bullet Indicator -->
+                            <span class="absolute -left-[41px] top-1.5 w-5 h-5 rounded-full bg-brand-primary border-4 border-slate-50 dark:border-dark-base ring-4 ring-brand-primary/10"></span>
+                            
+                            <span class="text-xs font-bold text-brand-primary font-mono uppercase bg-brand-primary/10 px-3 py-1 rounded-full">Present Job Role</span>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-3">Full Stack .NET Developer</h3>
+                            <h4 class="text-slate-600 dark:text-gray-400 font-semibold text-sm">Prospecta Technologies India Pvt. Ltd. <span class="text-slate-400 dark:text-gray-500 font-normal ml-2 font-mono">Sep 2021 - Present</span></h4>
+                            <p class="text-slate-500 dark:text-gray-400 text-sm mt-4 leading-relaxed font-light">Lead operational platform architectures, coordinate release workflows with QA and Business Analysts, optimized database procedures, and designed frontend client modules in React &amp; Angular.</p>
+                        </div>
+
+                        <!-- Secondary Info Bullet -->
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-1.5 w-5 h-5 rounded-full bg-brand-accent border-4 border-slate-50 dark:border-dark-base ring-4 ring-brand-accent/10"></span>
+                            <span class="text-xs font-bold text-brand-accent font-mono uppercase bg-brand-accent/10 px-3 py-1 rounded-full">Mentorship</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-3">Junior Engineering Lead</h3>
+                            <p class="text-slate-500 dark:text-gray-400 text-sm mt-2 leading-relaxed font-light">Instructed, verified, and guided junior software developers during deployment, clean design programming, bug mitigation tracking, and feature expansions.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right: Visual Portrait from arms-crossed casual file -->
+                <div class="w-full lg:w-1/2 relative flex justify-center">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/10 to-brand-primary/10 rounded-full blur-2xl"></div>
+                        <div class="relative w-full h-full bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-[2rem] overflow-hidden shadow-xl">
+                            <img 
+                                src="../V1/ManoharProfileImage.png" 
+                                alt="Jureddy Lakshmi Manohar Kumar" 
+                                class="w-full h-full object-cover object-center"
+                                onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Recruiter Connect Footer -->
+    <footer id="contact" class="bg-slate-900 dark:bg-gray-950 text-white pt-24 pb-12 rounded-t-[3rem] border-t border-slate-800 dark:border-gray-850 relative z-10">
+        <div class="container mx-auto px-6 lg:px-12">
+            
+            <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-16 border-b border-slate-800 pb-16 gap-10">
+                <div class="text-center lg:text-left max-w-lg">
+                    <div class="text-brand-accent font-mono text-xs tracking-widest uppercase mb-3">GET IN TOUCH</div>
+                    <h2 class="text-4xl font-extrabold mb-6 font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Let's build something exceptional together</h2>
+                    <p class="text-slate-400 text-lg font-light">I'm currently screening roles, and ready to contribute backend excellence and cloud scalability to your team.</p>
+                </div>
+
+                <!-- Direct Interactive Call-to-actions -->
+                <div class="flex flex-col sm:flex-row lg:flex-col gap-4 w-full lg:w-auto">
+                    <!-- Email -->
+                    <a href="mailto:LmanoharK9@gmail.com" class="flex items-center justify-center lg:justify-start gap-4 bg-slate-800/50 dark:bg-gray-900 border border-slate-700/60 dark:border-gray-800 hover:border-brand-primary dark:hover:border-brand-primary hover:bg-brand-primary/10 px-8 py-5 rounded-2xl transition-all duration-300 font-semibold w-full font-mono">
+                        <i class="fa-solid fa-envelope text-xl text-brand-primary"></i> LmanoharK9@gmail.com
+                    </a>
+                    <!-- Direct phone -->
+                    <a href="tel:+919705706928" class="flex items-center justify-center lg:justify-start gap-4 bg-slate-800/50 dark:bg-gray-900 border border-slate-700/60 dark:border-gray-800 hover:border-brand-accent dark:hover:border-brand-accent hover:bg-brand-accent/10 px-8 py-5 rounded-2xl transition-all duration-300 font-semibold w-full font-mono">
+                        <i class="fa-solid fa-phone text-xl text-brand-accent"></i> +91 9705706928
+                    </a>
+                </div>
+            </div>
+
+            <!-- working Social and CV indicators -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center">
+                        <span class="text-white font-extrabold text-sm">M</span>
+                    </div>
+                    <span class="font-extrabold tracking-tight font-display text-white text-base">Manohar<span class="text-brand-accent">.</span></span>
+                </div>
+                
+                <p class="text-slate-400 text-xs text-center md:text-left">
+                    &copy; 2026 Jureddy Lakshmi Manohar Kumar. Optimized for technical screening workflows.
+                </p>
+                
+                <!-- Social links matching layout -->
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/jureddy-lakshmi-manoharkumar-1a46b8135" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800/50 dark:bg-gray-900 border border-slate-700/60 dark:border-gray-800 hover:border-brand-primary hover:bg-brand-primary/10 flex items-center justify-center text-slate-400 hover:text-white transition-all text-lg" title="LinkedIn Profile">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800/50 dark:bg-gray-900 border border-slate-700/60 dark:border-gray-800 hover:border-brand-primary hover:bg-brand-primary/10 flex items-center justify-center text-slate-400 hover:text-white transition-all text-lg" title="GitHub Account">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Vanilla Javascript Interactions and copy engines -->
+    <script>
+        // Smooth sticky dynamic navbar styling on window scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 40) {
+                nav.classList.add('bg-white/90', 'dark:bg-gray-950/80', 'backdrop-blur-lg', 'border-slate-200/80', 'dark:border-gray-800/80', 'py-4', 'shadow-sm');
+                nav.classList.remove('py-6', 'border-transparent');
+            } else {
+                nav.classList.remove('bg-white/90', 'dark:bg-gray-950/80', 'backdrop-blur-lg', 'border-slate-200/80', 'dark:border-gray-800/80', 'py-4', 'shadow-sm');
+                nav.classList.add('py-6', 'border-transparent');
+            }
+        });
+
+        // Interactive Theme Toggle System (Localstorage remembered)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Initialize theme based on preference or fallback
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-sun text-lg text-amber-500';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.className = 'fa-solid fa-moon text-lg text-slate-300';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeIcon.className = 'fa-solid fa-sun text-lg text-amber-500';
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                themeIcon.className = 'fa-solid fa-moon text-lg text-slate-300';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Fast Email Copy with custom interactive Toast Alert (No alerts/confirms!)
+        function copyEmailToClipboard() {
+            const emailInput = document.createElement('input');
+            emailInput.value = 'LmanoharK9@gmail.com';
+            document.body.appendChild(emailInput);
+            emailInput.select();
+            emailInput.setSelectionRange(0, 99999); /* For mobile devices */
+            
+            // Execute copy
+            document.execCommand('copy');
+            document.body.removeChild(emailInput);
+
+            // Pop success toast to screen
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3000);
+        }
+
+        // Fast Project category Filter mechanism
+        function filterPortfolio(category, clickedBtn) {
+            // Update active state of button
+            const buttons = document.querySelectorAll('.portfolio-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-primary', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-500', 'dark:text-gray-400', 'hover:text-slate-800', 'dark:hover:text-white');
+            });
+            clickedBtn.classList.remove('text-slate-500', 'dark:text-gray-400', 'hover:text-slate-800', 'dark:hover:text-white');
+            clickedBtn.classList.add('bg-brand-primary', 'text-white', 'shadow-sm');
+
+            const cards = document.querySelectorAll('#portfolio-grid > div');
+            cards.forEach(card => {
+                // Read categorisation flags safely
+                const categories = eval(card.getAttribute('data-category'));
+                
+                if (category === 'all' || categories.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
